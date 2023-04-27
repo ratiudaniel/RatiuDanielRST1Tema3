@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2113.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Aplicatie care oferă posibilitatea de a calcula inmutirea și împărțirea a doua numere reale&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;Aplicatie care oferă posibilitatea de a calcula inmutirea și împărțirea a doua numere reale&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for=“primul_numar”&gt;Introdu primul număr:&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="text" id="primul_numar"&gt;&lt;br&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for=“al_doilea_numar”&gt;Introdu al doilea număr:&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="text" id="al_doilea_numar"&gt;&lt;br&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="inmultire()"&gt;Inmulțire&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="impartire()"&gt;Impartire&lt;/button&gt;&lt;br&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p id="rezultat"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>function inmultire() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>var primul_numar = parseFloat(document.getElementById("primul_numar").value);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>var al_doilea_numar = parseFloat(document.getElementById("al_doilea_numar").value);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>var rezultat = primul_numar * al_doilea_numar;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById("rezultat").innerHTML = "Rezultatul inmultirii este: " + rezultat;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>function impartire() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>var primul_numar = parseFloat(document.getElementById("primul_numar").value);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>var al_doilea_numar = parseFloat(document.getElementById("al_doilea_numar").value);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>var rezultat = num1 / num2;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById("rezultat").innerHTML = "Rezultatul impartirii este: " + rezultat;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
