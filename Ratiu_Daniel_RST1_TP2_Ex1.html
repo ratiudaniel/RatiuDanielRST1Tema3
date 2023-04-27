@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cronometru cu numărătoare inversă</title>
+    <style>
+      /* Centrare pe pagina */
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Cronometru cu numărătoare inversă</h1>
+      <p>Alege timpul pentru numărătoarea inversă:</p>
+      <label for="minute">Minute:</label>
+      <input type="number" id="minute" value="0"><br><br>
+      <button onclick="startTimer()">Start</button>
+      <button onclick="stopTimer()">Stop</button><br><br>
+      <p id="countdown"></p>
+      <p id="timer"></p>
+    </div>
+    <script>
+      var countdownIntervalId;
+      var timerIntervalId;
+      function startTimer() {
+        var minute = parseInt(document.getElementById("minute").value);
+        if (isNaN(minute)) {
+          alert("Introduceti un numar valid pentru minute.");
+          return;
+        }
+        if (minute <= 0) {
+          alert("Introduceti un timp mai mare decat zero.");
+          return;
+        }
+        var totalTime = minute * 60;
+        var startTimestamp = Date.now();
+        var endTimestamp = startTimestamp + totalTime * 1000;
+        countdownIntervalId = setInterval(function() {
+          var remainingTime = endTimestamp - Date.now();
+          if (remainingTime <= 0) {
+            clearInterval(countdownIntervalId);
+            clearInterval(timerIntervalId);
+            document.getElementById("countdown").innerHTML = "Timpul a expirat!";
+          } else {
+            var minute = Math.floor(remainingTime / 60000);
+            var second = Math.floor((remainingTime % 60000) / 1000);
+            var hour = Math.floor(minute / 60);
+            minute = minute % 60;
+            if (hour > 0) {
+              document.getElementById("countdown").innerHTML = "Timp ramas: " + hour + " ore, " + minute + " minute, si " + second + " secunde.";
+            } else {
+              document.getElementById("countdown").innerHTML = "Timp ramas: " + minute + " minute si " + second + " secunde.";
+            }
+          }
+        }, 1000);
+        var startTime = Date.now();
+        timerIntervalId = setInterval(function() {
+          var elapsed = Date.now() - startTime;
+          var minutes = Math.floor(elapsed / 60000);
+          var seconds = Math.floor((elapsed % 60000) / 1000);
+          document.getElementById("timer").innerHTML = "Timp scurs: " + minutes + " minute si " + seconds + " secunde.";
+        }, 1000);
+      }
+      function stopTimer() {
+        clearInterval(countdownIntervalId);
+        clearInterval(timerIntervalId);
+        document.getElementById("countdown").innerHTML = "Numărătoarea inversă a fost oprită.";
+        document.getElementById("timer").innerHTML = "";
+      }
+    </script>
+  </body>
+</html>

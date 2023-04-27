@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Intersecția a două mulțimi</title>
+</head>
+<body>
+
+  <h1>Intersecția a două mulțimi</h1>
+
+  <label for="set1">Mulțimea 1:</label>
+  <input type="text" id="set1"><br><br>
+  <button onclick="generateSet('set1')">Generează mulțimea 1</button><br><br>
+
+  <label for="set2">Mulțimea 2:</label>
+  <input type="text" id="set2"><br><br>
+  <button onclick="generateSet('set2')">Generează mulțimea 2</button><br><br>
+
+  <button onclick="intersect()">Intersecție</button><br><br>
+
+  <label for="result">Rezultat:</label>
+  <input type="text" id="result" disabled>
+
+  <script>
+    function generateSet(setId) {
+      const set = new Set();
+      const numElements = Math.floor(Math.random() * 10) + 1;
+      for (let i = 0; i < numElements; i++) {
+        set.add(Math.floor(Math.random() * 100) + 1);
+      }
+      document.getElementById(setId).value = [...set];
+    }
+
+    function intersect() {
+      const set1 = new Set(document.getElementById('set1').value.split(','));
+      const set2 = new Set(document.getElementById('set2').value.split(','));
+      const intersection = new Set([...set1].filter(x => set2.has(x)));
+      document.getElementById('result').value = [...intersection];
+    }
+  </script>
+
+</body>
+</html>
